@@ -34,30 +34,30 @@ void main()
   int pass[2],ret[2],BYTE_SIZE;
 
   system("clear");
-  
+
   pipe(pass);
   ID_USER = fork();
-  
+
   if(ID_USER == 0)
   {
 	GET_MSG();
 	write(pass[1],MSG_BUF,MAX_LIMIT);
         read(ret[0],status,sizeof(SUCESS));
   	close(pass[1]);
-  }	
-  
+  }
+
   else
-  {	
-	BYTE_SIZE = read(pass[0],buffer,MAX_LIMIT);
-	if(BYTE_SIZE != NULL){
-		printf("String : %s ",buffer);
-		write(ret[1],SUCESS,sizeof(SUCESS));		
-		close(pass[0]);
-	}
-	else{
-		write(ret[1],FAIL,sizeof(FAIL));
-		exit(0);	
-	}
+  {
+		BYTE_SIZE = read(pass[0],buffer,MAX_LIMIT);
+		if(BYTE_SIZE != NULL){
+			printf("String : %s ",buffer);
+			write(ret[1],SUCESS,sizeof(SUCESS));
+			close(pass[0]);
+		}
+		else{
+			write(ret[1],FAIL,sizeof(FAIL));
+			exit(0);
+		}
   }
 
  printf("\n\n-- Break -- \n\n");
