@@ -1,7 +1,7 @@
 #  Python implementation
 
 # 	Program    :  UDP Time Server (Server Implementation)
-# 	Status     :  Developing
+# 	Status     :  Stable
 # 	Created by :  Sarath Peter
 
 ## Import packages here
