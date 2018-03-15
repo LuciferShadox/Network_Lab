@@ -1,7 +1,7 @@
 #  Python implementation
 
 # 	Program    :  Simple Mail Transfer Protocol
-# 	Status     :   Developing
+# 	Status     :  Stable
 # 	Created by :  Sarath Peter
 
 ## Import packages here
@@ -13,24 +13,24 @@ import getpass
 
 ## Write code here
 
-server = smtplib.SMTP('smtp.gmail.com', 587)
-server.starttls()
+server = smtplib.SMTP('smtp.gmail.com', 587) ## setting gmail SMTP
+server.starttls()   # starting tls service
 print("------ Server is online ------")
-server.ehlo()
 
+## Authentication Data
 username = raw_input(" Enter Username : ")
 password = getpass.getpass(" Enter Password : ")
 
 try:
-    server.login(username, password)
+    server.login(username, password) ## Login Attempt
 
 except smtplib.SMTPAuthenticationError:
-    print("==(!)== Sign in error ==(!)==")
+    print("==(!)== Sign in error ==(!)==") ## Login Failed
 
 else:
-    print("\nWelcome "+username[:9])
-    target = raw_input("\n Enter target mail address : ")
+    print("\nWelcome "+username[:9]) ## Greeting
+    target = raw_input("\n Enter target mail address : ") ## Mail Address to send test mail
     test = "Subject: Auto generated mail \n\n The following is a generated mail sent from "+username+". \nPlease do not reply \n\n Regards\n Sarath Peter"
-    server.sendmail(username,target,test)
+    server.sendmail(username,target,test) ## Sending mail to give target mail address
     print("\n---- Test Mail Send to "+target+" ----")
-    server.close()
+    server.close() ## Closing connections
