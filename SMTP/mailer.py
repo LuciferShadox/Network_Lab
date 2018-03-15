@@ -19,7 +19,7 @@ print("------ Server is online ------")
 
 ## Authentication Data
 username = raw_input(" Enter Username : ")
-password = getpass.getpass(" Enter Password : ")
+password = getpass.getpass(" Enter Password : ") ## To type passwords as hidden
 
 try:
     server.login(username, password) ## Login Attempt
