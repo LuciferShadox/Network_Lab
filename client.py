@@ -18,7 +18,7 @@ ClientObj = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 IP = raw_input(" Enter IP Address : ")
 PORT = raw_input(" Enter Port : ")
 PORT = int(PORT)
-
+##conect using ip and port
 ClientObj.connect((IP,PORT))
 ClientObj.recv(4096)
 com = raw_input("\n FTP -> ")
